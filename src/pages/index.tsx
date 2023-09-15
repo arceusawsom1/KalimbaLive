@@ -5,8 +5,11 @@ import Link from "next/link";
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const {data} = api.example.getAll.useQuery();
   const {isSignedIn, isLoaded, user} = useUser();
+
+  console.log(data)
+
   return (
     <>
       <Head>
@@ -47,7 +50,6 @@ export default function Home() {
           {!!isSignedIn && <p>Hello {user.username} </p>}
           {!!isSignedIn && <SignOutButton />}
           <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p>
         </div>
       </main>
