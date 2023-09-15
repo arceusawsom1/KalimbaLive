@@ -50,7 +50,7 @@ export default function Home() {
           {!!isSignedIn && <p>Hello {user.username} </p>}
           {!!isSignedIn && <SignOutButton />}
           <p className="text-2xl text-white">
-          </p>
+          </p> 
         </div>
       </main>
     </>
